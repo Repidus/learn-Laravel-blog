@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteRule ^.env - [F,L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)\.(.*)$ public/$1.$2 [L,NC]
+RewriteRule ^ index.php [L]
